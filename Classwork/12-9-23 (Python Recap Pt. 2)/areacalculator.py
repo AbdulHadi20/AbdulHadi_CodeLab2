@@ -53,7 +53,7 @@ elif optnshape == 3:  # calculates the rectangle
     elif optncal == 2:  # calculates the perimeter of the the rectangle
         length = int(input("Enter the length of the rectangle = "))
         width = int(input("Enter the width of the rectangle = "))
-        perimeterrect = 2 (length * width)
+        perimeterrect = 2 * (length + width)
         print("The perimeter of the rectangle is = ", perimeterrect, "meters.")
 
 else:  # prints if user enters invalide values
