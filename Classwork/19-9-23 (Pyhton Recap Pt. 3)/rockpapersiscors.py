@@ -1,17 +1,66 @@
-# creating a simple rock-paper-siscors game
-"""
+s  # welcoming the user to the game
+print("\t Welcome to the Rock - Paper - Siscors Game !!!")
+print("Press 's' to start ! \n or \n Press 'q' to quit !")
 
-# creating the function to welcome the user into the game
-def start():
-    print("\t \t Welcome to Rock Paper Scissors")
-    start = int(print("\t Welcome to the Rock - Paper - Siscors game !!! \n Press 's' to start"))
+# storing the users input in a variable
+start = str(input())
 
-#creating a list to store moves 
-moves = ['rock', 'paper', 'siscors']
+# creating a list for the computer to make a move
+moves = ['Rock', 'Paper', 'Siscors']
 
-#creating a function to make the computer make a move
-def comp_moves():
+# creating a function for the computer to make a move
+
+
+def comp_move():
     import random
 
-    random_move = random.move(moves) # storing the computer's move in a variable
-    print("The computer played ",random_move)"""
+    computersmove = random.move(moves)
+    print("The computer played ", computersmove)
+
+
+if start == 's':
+    while start == 's':
+        user_move = int(input(print(
+            "Select the move you want to make = \n 1. Rock \n 2. Paper \n 3. Siscors \n ")))
+
+        if user_move == 1:
+            print("You chose to play Rock!")
+            comp_move()
+
+            if user_move == 1 and comp_move() == moves[1]:
+                print("You lost!")
+
+            elif user_move == 1 and comp_move() == moves[0]:
+                print("It's a tie!")
+
+            elif user_move == 1 and comp_move() == moves[2]:
+                print("You win!")
+
+        elif user_move == 2:
+            print("You chose to play Paper!")
+            comp_move()
+
+            if user_move == 2 and comp_move() == moves[2]:
+                print("You lost!")
+
+            elif user_move == 2 and comp_move() == moves[1]:
+                print("It's a tie!")
+
+            elif user_move == 2 and comp_move() == moves[0]:
+                print("You win!")
+
+        elif user_move == 3:
+            print("You chose to play Siscors!")
+            comp_move()
+
+            if user_move == 3 and comp_move() == moves[0]:
+                print("You lost!")
+
+            elif user_move == 3 and comp_move() == moves[2]:
+                print("It's a tie!")
+
+            elif user_move == 3 and comp_move() == moves[1]:
+                print("You win!")
+
+        else:
+            print("Invalid choice!")
