@@ -1,12 +1,12 @@
-# a simple rock - paper - siscors game
+# a simple rock - paper - scisscors game
 # importing a module "random" from the Python library
 import random
 
 # creating a list for the computer and the user
-choices = ['rock', 'paper', 'siscors']
+choices = ['rock', 'paper', 'scisscors']
 
 # welcoming the user to the game
-print("Welcome to the rock - paper - siscors game !!!")
+print("Welcome to the rock - paper - scisscors game !!!")
 
 # creating a while loop, so that the code keeps running until a certain codition is met
 while True:
@@ -39,19 +39,19 @@ while True:
       print("You chose", choices[1], " and the computer chose", choices[0])
       print("You win ! \n Computer lost !")
 
-    elif user_input == 'rock' and comp_choice == 'siscors':
+    elif user_input == 'rock' and comp_choice == 'scisscors':
       print("You chose", choices[0], " and the computer chose", choices[2])
       print("You win ! \n Computer lost !")
       
-    elif user_input == 'siscors' and comp_choice == 'rock':
+    elif user_input == 'scisscors' and comp_choice == 'rock':
       print("You chose", choices[2], " and the computer chose", choices[1])
       print("You loose ! \n Computer wins !")
       
-    elif user_input == 'paper' and comp_choice == 'siscors':
+    elif user_input == 'paper' and comp_choice == 'scisscors':
       print("You chose", choices[1], " and the computer chose", choices[2])
       print("You loose ! \n Computer wins !")
 
-    elif user_input == 'siscors' and comp_choice == 'paper':
+    elif user_input == 'scisscors' and comp_choice == 'paper':
       print("You chose", choices[2], " and the computer chose", choices[1])
       print("You win ! \n Computer lost !")
 
