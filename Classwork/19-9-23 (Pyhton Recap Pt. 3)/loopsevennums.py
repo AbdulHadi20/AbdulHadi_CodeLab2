@@ -1,4 +1,4 @@
-# consider a loop that counts form 1 to 10, but prints only odd numbers
+# consider a loop that counts form 1 to 10, but prints only even numbers
 
 # initialzizing a value in a variable to be incremented
 num = 0
@@ -7,7 +7,7 @@ num = 0
 while num <=10:
 
     # setting a condtitom+n to print desired numbers
-    if num % 2 == 1:
+    if num % 2 == 0:
         print(num)
     
     # incrementing the value in the variable by 1
