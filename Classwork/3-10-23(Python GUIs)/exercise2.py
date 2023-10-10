@@ -25,5 +25,3 @@ theBtn.place(x = 353, y = 550)
 
 #getting the window ready
 window.mainloop()
-
-
