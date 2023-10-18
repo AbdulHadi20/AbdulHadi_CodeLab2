@@ -13,7 +13,6 @@ num = 0
 while True:
     num += 1
     if num <= 100:
-        print(num)
         if num % 3 == 0 and num % 5 == 0:
             print("FizzBuzz")
             
@@ -22,6 +21,9 @@ while True:
 
         elif num % 5 == 0:
             print("Buzz")
+        else:
+           print(num)
+        
 
 
 
