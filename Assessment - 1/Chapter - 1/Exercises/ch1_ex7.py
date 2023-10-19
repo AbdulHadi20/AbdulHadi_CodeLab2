@@ -10,29 +10,23 @@ Writing a program that prints the numbers from 1 to 100, but only prints the eve
 # initializing a variable num with 0, so the loop can 
 num = 0
 
+
+# creating a while loop to print the numbers continously
 while True:
+
+    # a conditional statement to check if numbers printed are less than or equal to 100
     if num <= 100:
-        num += 1
+        # inrements a number by 1 if the above condition is true
+        num += 1 
         
+        # a nested conditon to check if the number is even
         if num % 2 == 0:
             print(num)
 
-            continue
-        
-    elif num > 100:
-        break
+            continue # continue statement is used to let the compiler know that the loop should be continued
 
+     # a condition that breaks the loop if the numbers to be printed are greater than 100   
+    else:
+        break # using break to break the loop
 
-
-
-"""    
-while num <= 100:
-    num += 1
-
-    if num % 2 == 0:
-        print(num)    
-
-    continue
-"""
-
-# end of the program (NOT FINISHED)
+# end of the program 

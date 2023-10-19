@@ -24,7 +24,7 @@ sum3 = side1 + side3
 
 # using conditional statements to check if the sides make a triangle
 # if the triangle has the sum of any two sides greater or equal to than the remaining side, this statement will executed
-if side1 <= sum2 or side2 <= sum3 or side3 <= sum1: 
+if side1 <= sum2 and side2 <= sum3 and side3 <= sum1: 
     print(f"\n The length of the three sides {side1, side2, side3} make a triangle.")
 # this statement will execute if the statement above is false
 else:
