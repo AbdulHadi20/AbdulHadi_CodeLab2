@@ -23,22 +23,19 @@ print("\n List Items: ")
 for i in random_list:
     print("\n ", i)
 
-# printing the highest and lowest values
+# for printing the highest value, we use the max() function
+print("\n The highest value in the list is: ", max(random_list))
 
-# for the highest value (not working yet)
-
-# for the lowest value
-
-
+# for printing the lowest value, we use the min() function
+print("\n The lowest value in the list is: ", min(random_list))
 
 # sorting the elements in ascending order
 sorted_list = sorted(random_list)
 print("\n Here is the list sorted in Ascending Order: ")
 print("\n ",sorted_list)
 
-
 # sorting the list in descending order
-random_list.reverse()
+random_list.sort(reverse = True)
 print("\n Here is the list sorted in Descending Order: ")
 print("\n", random_list)
 
@@ -50,4 +47,4 @@ random_list.append(99)
 print("\n The list after two appended values: ")
 print("\n ", random_list)
 
-# end of the program (not complete yet)
+# end of the program 

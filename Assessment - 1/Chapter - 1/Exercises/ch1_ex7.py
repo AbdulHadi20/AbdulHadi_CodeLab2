@@ -10,7 +10,7 @@ Writing a program that prints the numbers from 1 to 100, but only prints the eve
 # initializing a variable num with 0, so the loop can 
 num = 0
 
-
+"""
 # creating a while loop to print the numbers continously
 while True:
 
@@ -23,10 +23,17 @@ while True:
         if num % 2 == 0:
             print(num)
 
-            continue # continue statement is used to let the compiler know that the loop should be continued
+        continue # continue statement is used to let the compiler know that the loop should be continued
 
      # a condition that breaks the loop if the numbers to be printed are greater than 100   
     else:
         break # using break to break the loop
 
 # end of the program 
+"""
+
+for num in range(0, 101):
+    if num % 2 != 0:
+        continue
+
+    print(num)
