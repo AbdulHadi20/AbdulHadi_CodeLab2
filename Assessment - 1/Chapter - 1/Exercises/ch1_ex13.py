@@ -8,19 +8,20 @@ the output.
 
 # start of the program
 
-# importing the math library
-import math
-
 # creating a list of 5 numbers
 nums = [3, 8, 4, 5, 2]
 
-# using the math.prod() function to multiply all the numbers in the list
-prod = math.prod(nums)
+# creating a function, with a variable ans initialized as 1 in the paranthesis
+def multiply(prod = 1):
+    # creating a for loop to go through the list
+    for i in nums:
+        # multiplying the elements in the list
+        prod = prod * i
 
-# printing the list
-print(f"\n The list: {nums}")
+    # printing the result
+    print(f"\n The product of all values in the list is {prod}")
 
-# printing the result
-print(f"\n The product of all the values in the list is {prod}")
+# calling the function
+multiply()
 
 # end of the program
