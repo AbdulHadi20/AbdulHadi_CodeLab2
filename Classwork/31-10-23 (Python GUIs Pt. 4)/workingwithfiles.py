@@ -1,8 +1,8 @@
 # working with files
 
 # opening the files
-files = open ("myfilelol.txt", 'r')
+f = open ("textfile.txt", 'a')
 
 # reading the lines in the text line
-firstline = files.read()
+firstline = f.read()
 print(firstline)

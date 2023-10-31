@@ -15,14 +15,13 @@ print("\n Welcome to the loop ! ")
 def question():
     global userentry
     userentry = str(input("\n Do you wish to continue ? (y/n) : "))
-count = 0
+count = 1
 
 # creating a while loop 
 while True:
-    count += 1
     question() # calling the function to ask the question
     if userentry == 'y': # executes if user enters y, loop keeps going
-        
+        count += 1        
         continue
 
     elif userentry == 'n': # executes if user enters n, loop terminates
@@ -30,8 +29,7 @@ while True:
 
     else: # executes if user enters values other then y/n
         print("\n Invalid Entry. Please try again")
-        question()
 
 print(f"\n The loop has run {count} times now.")
 
-# end of the program, (STILL NEEDS MORE ATTENTION)
+# end of the program
