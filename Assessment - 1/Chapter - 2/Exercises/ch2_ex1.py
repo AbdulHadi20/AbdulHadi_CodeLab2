@@ -22,12 +22,14 @@ root_window = Tk()
 root_window.geometry("600x600") #sizing
 root_window.resizable(0, 0) #hehe, now it cannot be resized...
 
-# creating a label
-welcome = Label(root_window, text="MY FIRST GUI WINDOW", font="Helvetica", style= "bold", size = 40)
-welcome.pack(side=CENTER)
+# creating a label and displaying it on the gui window 
+welcome = Label(root_window, text="MY FIRST GUI WINDOW", font=("Helvetica", 20, "bold")) # creating label
+welcome.pack() # displaying label
 
 # adding a background color
-root_window.configure(background="red")
+root_window.configure(background="#a1b2c3") # im not sure about the name of the color, just wrote a random hex code for fun (light purple imo)
 
 #running the root window
 root_window.mainloop()
+
+# end of the program 
