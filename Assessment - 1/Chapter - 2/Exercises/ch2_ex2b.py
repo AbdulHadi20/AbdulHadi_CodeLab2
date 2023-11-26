@@ -36,7 +36,7 @@ frame2.pack(side = RIGHT, expand = 1, fill = BOTH)
 label1 = Label(frame1, text = "A", bg = '#012A4A', fg = 'white', width = 10, height = 10)
 label2 = Label(frame1, text = "B", width = 10, height = 10)
 label3 = Label(frame2, text = "C", width = 10, height = 10)
-label4 = Label(frame2, text = "D", bg = 'blue', fg = 'white', width = 10, height = 10)
+label4 = Label(frame2, text = "D", bg = '#012A4A', fg = 'white', width = 10, height = 10)
 
 # packing the labels to be displayed inside the frame
 label1.pack(side = TOP, fill = BOTH, expand = 1)
@@ -46,3 +46,5 @@ label4.pack(side = BOTTOM, fill = BOTH, expand = 1)
 
 # running the root widow
 appwindow.mainloop()
+
+# end of the program
