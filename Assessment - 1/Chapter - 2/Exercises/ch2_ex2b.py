@@ -21,7 +21,28 @@ appwindow = Tk()
 appwindow.title("Square Grids")
 
 # setting the window size and making it resizable
-appwindow.geometry("600x600")
+appwindow.geometry("500x400")
 appwindow.resizable(1, 1)
 
-frame1 = Frame(appwindow, )
+# creating the two frames 
+frame1 = LabelFrame(appwindow, border = 5, padx = 5, pady = 5)
+frame2 = LabelFrame(appwindow, border = 5, padx = 5, pady = 5)
+
+#packing the frames to display on the main window
+frame1.pack(side = LEFT, expand = 1, fill = BOTH)
+frame2.pack(side = RIGHT, expand = 1, fill = BOTH)
+
+# creating labels inside the frame as reuired
+label1 = Label(frame1, text = "A", bg = '#012A4A', fg = 'white', width = 10, height = 10)
+label2 = Label(frame1, text = "B", width = 10, height = 10)
+label3 = Label(frame2, text = "C", width = 10, height = 10)
+label4 = Label(frame2, text = "D", bg = 'blue', fg = 'white', width = 10, height = 10)
+
+# packing the labels to be displayed inside the frame
+label1.pack(side = TOP, fill = BOTH, expand = 1)
+label2.pack(side = BOTTOM, fill = BOTH, expand = 1)
+label3.pack(side = TOP, fill = BOTH, expand = 1)
+label4.pack(side = BOTTOM, fill = BOTH, expand = 1)
+
+# running the root widow
+appwindow.mainloop()
