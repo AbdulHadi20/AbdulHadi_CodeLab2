@@ -17,18 +17,37 @@ apptab = Tk()
 apptab.title("Login Page")
 apptab.geometry("600x400")
 
-# setting the window, to be fixed, forbidding resizing
-apptab.resizable(0, 0)
+# setting the window, to be fixed, forbidding resizing (will be decided)
+apptab.resizable(1, 1)
+
+# setting the background color for the window
+apptab.configure(background = '#ffe5b4')
 
 # creating a frame to place all the text-boxes, buttons, etc. in one place
-mainframe = LabelFrame(apptab, bg = '#1a2b45', border = 20)
+mainframe = LabelFrame(apptab, bg = '#1a2b45', border = 10)
 
 # creating a label inside a frame..
-loginheading = Label(mainframe, text = "Log In / Sign Up")
+loginheading = Label(mainframe, text = "LOGIN", fg = '#ffffff', bg = '#1a2b45', font = ('Helavatica', 30, 'bold'))
+
+# creating a label for username and password
+user_label = Label(mainframe, text = 'Username: ', fg = '#ffffff', bg = '#1a2b45', font = ('Helavatica', 15, 'semi-bold'))
+pass_label = Label(mainframe, text = 'Password: ', fg = '#ffffff', bg = '#1a2b45', font = ('Helavatica', 15, 'semi-bold'))
+
+# creating text boxes for username and password
+user_text = Text(mainframe, width = 30, height = 8)
+pass_text = Text(mainframe, width = 30, height = 8)
 
 # using grid() to display the frame
-mainframe.grid(padx = 100, pady = 100)
-loginheading.grid(padx = 50, pady = 50, row = 1, column = 8)
+mainframe.grid(padx = 100, pady = 100, row = 10, column = 10 )
+
+# displaying the heading inside the frame
+loginheading.grid(padx = 50, pady = 50, row = 5, column = 8)
+
+# displaying the username and password labels inside the frame
+user_label.grid()
+pass_label.grid()
+
+# disp
 
 # using mainloop to display/run the main apptab window
 apptab.mainloop()
