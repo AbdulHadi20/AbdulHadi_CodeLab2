@@ -30,12 +30,12 @@ mainframe = LabelFrame(apptab, bg = '#1a2b45', border = 10)
 loginheading = Label(mainframe, text = "LOGIN", fg = '#ffffff', bg = '#1a2b45', font = ('Helavatica', 30, 'bold'))
 
 # creating a label for username and password
-user_label = Label(mainframe, text = 'Username: ', fg = '#ffffff', bg = '#1a2b45', font = ('Helavatica', 15, 'semi-bold'))
-pass_label = Label(mainframe, text = 'Password: ', fg = '#ffffff', bg = '#1a2b45', font = ('Helavatica', 15, 'semi-bold'))
+user_label = Label(mainframe, text = 'Username: ', fg = '#ffffff', bg = '#1a2b45', font = ('Helavatica', 15, 'bold'))
+pass_label = Label(mainframe, text = 'Password: ', fg = '#ffffff', bg = '#1a2b45', font = ('Helavatica', 15, 'bold'))
 
 # creating text boxes for username and password
-user_text = Text(mainframe, width = 30, height = 8)
-pass_text = Text(mainframe, width = 30, height = 8)
+user_text = Text(mainframe, width = 30, height = 1)
+pass_text = Text(mainframe, width = 30, height = 1)
 
 # using grid() to display the frame
 mainframe.grid(padx = 100, pady = 100, row = 10, column = 10 )
@@ -43,11 +43,19 @@ mainframe.grid(padx = 100, pady = 100, row = 10, column = 10 )
 # displaying the heading inside the frame
 loginheading.grid(padx = 50, pady = 50, row = 5, column = 8)
 
+# creating a button to confirm login details
+login_btn = Button(mainframe, text = 'Log In', width = 15, height = 2, bg = '#ffe5b4', fg = '#1a2b45')
+
 # displaying the username and password labels inside the frame
 user_label.grid()
 pass_label.grid()
 
-# disp
+# displaying the text boxes for username and password
+user_text.grid()
+pass_text.grid()
+
+# displaying the button insiade the mainframe
+login_btn.grid()
 
 # using mainloop to display/run the main apptab window
 apptab.mainloop()
