@@ -10,13 +10,16 @@ Writing a program using tkinter module, that creates a GUI as shown in the image
 # importing the tkinter module library
 from tkinter import *
 
+# importing the PIL library (photo imaging library), as python does not support images with png format
+from PIL import ImageTk, Image
+
 # creating a variable, for the application window
 app = Tk()
 
 # setting the title, dimensions, resizable options for the application window
 app.title("Registration Page")
 app.geometry("600x700")
-app.resizable(0, 0)
+app.resizable(0, 1)
 
 # setting the background color
 app.configure(background = '#a1b2c4')
@@ -33,7 +36,9 @@ main_head = Label(main_frame, font = ('Roboto', 25, 'bold'), text = "Student Man
 subhead = Label(main_frame, font = ('Roboto', 20), text = "New Student Registration", fg = '#ffffff', bg = '#1a2b4c')
 
 # adding the image with the university logo at the top
-bathspalogobanner = PhotoImage(app, file = "bsu_logo_image.png")
+# bathspalogobanner = ImageTk.PhotoImage(Image.open("bsu_logo_image.png"))
+# logoimg = Label(image = bathspalogobanner)
+
 
 # creating the student name text label and the text box for the student name 
 stdname = Label(main_frame, font = ('Roboto', 14), text = "Student Name", fg = '#ffffff', bg = '#1a2b4c')
@@ -77,13 +82,14 @@ checkbox3 = Checkbutton(main_frame, text = 'Hindi/Urdu', bg = '#1a2b4c', fg = '#
 
 # creating the text message and its progress meter
 rates = Label(main_frame, font = ('Roboto', 15, 'bold'), text = "Rate your English communication skills", fg = '#ffffff', bg = '#1a2b4c')
+progressmeter = Scale(main_frame, from_ = 0, to = 100, orient = HORIZONTAL, width = 40, troughcolor = '#ffffff')
 
 
 
 
 ################################## PACKING ALL THE REQURED ITEMS ########################################################
 
-bathspalogobanner.pack(side = TOP)                                 # packing the header image in the window
+# bathspalogobanner.pack(side = TOP)                                 # packing the header image in the window
 main_frame.pack(pady = 20)                                            # packing the main frame inside the app window
 main_head.pack(padx = 10, pady = 10)                                  # packing the main heading inside the mainframe
 subhead.pack()                                                        # packing the subheading inside the mainframe
@@ -113,7 +119,7 @@ checkbox2.pack()
 checkbox3.pack()
 
 rates.pack()                       # packing the communication skills rating message
-#
+progressmeter.pack()               # packing the progress meter
 
   
 # using the mainloop function to run the window, loops the program unlimited number of times, until inturepted by anything
