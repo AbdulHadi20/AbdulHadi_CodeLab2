@@ -15,7 +15,7 @@ apptab = Tk()
 
 #setting the default dimensions for the app, setting the title
 apptab.title("Login Page")
-apptab.geometry("800x600")
+apptab.geometry("800x500")
 
 # setting the window, to be fixed, forbidding resizing
 apptab.resizable(0, 0)
@@ -34,28 +34,30 @@ user_label = Label(mainframe, text = 'Username: ', fg = '#ffffff', bg = '#1a2b45
 pass_label = Label(mainframe, text = 'Password: ', fg = '#ffffff', bg = '#1a2b45', font = ('Helavatica', 15, 'bold'))
 
 # creating text boxes for username and password
-user_text = Text(mainframe, width = 30, height = 1)
-pass_text = Text(mainframe, width = 30, height = 1)
+user_text = Text(mainframe, width = 50, height = 1, pady = 2)
+pass_text = Text(mainframe, width = 50, height = 1, pady = 2)
 
 # using grid() to display the frame
-mainframe.grid(padx = 100, pady = 75)
+mainframe.grid(row = 0, column = 3, padx = 30, pady = 15)
 
 # displaying the heading inside the frame
-loginheading.grid(padx = 150, pady = 75)
+loginheading.grid(padx = 150, pady = 75, column = 1)
 
 # creating a button to confirm login details
-login_btn = Button(mainframe, text = 'Log In', width = 15, height = 2, bg = '#ffe5b4', fg = '#1a2b45')
+login_btn = Button(mainframe, text = 'Log In', width = 15, height = 2, bg = '#ffe5b4', fg = '#1a2b45', font = ('Helavatica', 15, 'bold'))
 
 # displaying the username and password labels inside the frame
-user_label.grid()
-pass_label.grid()
+user_label.grid(row = 1, column = 0, pady = 2, padx = 40)
+pass_label.grid(row = 2, column = 0, pady = 2, padx = 40)
 
 # displaying the text boxes for username and password
-user_text.grid()
-pass_text.grid()
+user_text.grid(row = 1, column = 1, pady = 2)
+pass_text.grid(row = 2, column = 1, pady = 2)
 
 # displaying the button insiade the mainframe
-login_btn.grid()
+login_btn.grid(row = 3, column = 1, pady = 20)
 
 # using mainloop to display/run the main apptab window
 apptab.mainloop()
+
+# end of the program
