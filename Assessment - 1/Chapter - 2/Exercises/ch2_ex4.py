@@ -42,8 +42,8 @@ subhead = Label(main_frame, font = ('Roboto', 20), text = "New Student Registrat
 
 script_directory = os.path.dirname(os.path.realpath(__file__))
 img = Image.open(os.path.join(script_directory, "BSULOGO.png"))
-tk_img = ImageTk.PhotoImage(img)
-imglabel = Label(app, image = tk_img)
+logobsubanner = ImageTk.PhotoImage(img)
+imglabel = Label(app, image = logobsubanner)
 
 # creating the student name text label and the text box for the student name 
 stdname = Label(main_frame, font = ('Roboto', 14), text = "Student Name", fg = '#ffffff', bg = '#1a2b4c')
