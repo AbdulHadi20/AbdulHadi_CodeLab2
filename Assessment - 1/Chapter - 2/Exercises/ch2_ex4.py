@@ -9,7 +9,7 @@ Writing a program using tkinter module, that creates a GUI as shown in the image
 
 # importing the tkinter module library
 from tkinter import *
-
+import os
 # importing the PIL library (photo imaging library), as python does not support images with png format
 from PIL import ImageTk, Image
 
@@ -35,10 +35,15 @@ main_head = Label(main_frame, font = ('Roboto', 25, 'bold'), text = "Student Man
 # creating a sub-heading inside the frame
 subhead = Label(main_frame, font = ('Roboto', 20), text = "New Student Registration", fg = '#ffffff', bg = '#1a2b4c')
 
-# adding the image with the university logo at the top
+# adding the image inside a canvas with the university logo at the top
+# canvas = Canvas(app, width = 50, height = 5)    
 # bathspalogobanner = ImageTk.PhotoImage(Image.open("bsu_logo_image.png"))
-# logoimg = Label(image = bathspalogobanner)
+# canvas.create_image(0, 0, side = TOP, image = bathspalogobanner)
 
+script_directory = os.path.dirname(os.path.realpath(__file__))
+img = Image.open(os.path.join(script_directory, "BSULOGO.png"))
+tk_img = ImageTk.PhotoImage(img)
+imglabel = Label(app, image = tk_img)
 
 # creating the student name text label and the text box for the student name 
 stdname = Label(main_frame, font = ('Roboto', 14), text = "Student Name", fg = '#ffffff', bg = '#1a2b4c')
@@ -89,7 +94,7 @@ progressmeter = Scale(main_frame, from_ = 0, to = 100, orient = HORIZONTAL, widt
 
 ################################## PACKING ALL THE REQURED ITEMS ########################################################
 
-# bathspalogobanner.pack(side = TOP)                                 # packing the header image in the window
+imglabel.pack(side = TOP)                                 # packing the header image in the window
 main_frame.pack(pady = 20)                                            # packing the main frame inside the app window
 main_head.pack(padx = 10, pady = 10)                                  # packing the main heading inside the mainframe
 subhead.pack()                                                        # packing the subheading inside the mainframe
