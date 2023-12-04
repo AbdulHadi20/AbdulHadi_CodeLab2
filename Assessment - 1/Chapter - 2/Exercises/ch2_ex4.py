@@ -5,11 +5,14 @@ Writing a program using tkinter module, that creates a GUI as shown in the image
 
 """
 
-# start of the program
+# start of the program (set up the layout)
 
 # importing the tkinter module library
 from tkinter import *
+
+# imported the os library to help with the file paths in the os
 import os
+
 # importing the PIL library (photo imaging library), as python does not support images with png format
 from PIL import ImageTk, Image
 
@@ -35,15 +38,12 @@ main_head = Label(main_frame, font = ('Roboto', 25, 'bold'), text = "Student Man
 # creating a sub-heading inside the frame
 subhead = Label(main_frame, font = ('Roboto', 20), text = "New Student Registration", fg = '#ffffff', bg = '#1a2b4c')
 
-# adding the image inside a canvas with the university logo at the top
-# canvas = Canvas(app, width = 50, height = 5)    
-# bathspalogobanner = ImageTk.PhotoImage(Image.open("bsu_logo_image.png"))
-# canvas.create_image(0, 0, side = TOP, image = bathspalogobanner)
-
-script_directory = os.path.dirname(os.path.realpath(__file__))
-img = Image.open(os.path.join(script_directory, "BSULOGO.png"))
-logobsubanner = ImageTk.PhotoImage(img)
-imglabel = Label(app, image = logobsubanner)
+# adding the image inside a label with the university logo at the top
+scriptdir = os.path.dirname(os.path.realpath(__file__))         # a var with the file path 
+banner = Image.open(os.path.join(scriptdir, "BSULOGO.png"))     #  creating an image, and calling the file path and image file name
+logobsubanner = ImageTk.PhotoImage(banner)                      # this makes the image widget, and calls the img var 
+imglabel = Label(app, image = logobsubanner, height = 130)      # creating a label widget, to help display the image
+# app.geometry(f"{banner.width}x700") 
 
 # creating the student name text label and the text box for the student name 
 stdname = Label(main_frame, font = ('Roboto', 14), text = "Student Name", fg = '#ffffff', bg = '#1a2b4c')
@@ -94,37 +94,38 @@ progressmeter = Scale(main_frame, from_ = 0, to = 100, orient = HORIZONTAL, widt
 
 ################################## PACKING ALL THE REQURED ITEMS ########################################################
 
-imglabel.pack(side = TOP)                                 # packing the header image in the window
-main_frame.pack(pady = 20)                                            # packing the main frame inside the app window
-main_head.pack(padx = 10, pady = 10)                                  # packing the main heading inside the mainframe
-subhead.pack()                                                        # packing the subheading inside the mainframe
-stdname.pack()                       # packing the student name label text in the mainframe
-stdtext.pack()                      # packing the textbox for student name   
-mobilenum.pack()                     # packing the mobile number label in the mainframe
-mobilenumtext.pack()                # packing the text box for the mobile number in the mainframe
-email_id.pack()                    # packing the email id label inside the mainframe
-email_idbox.pack()                  # packing the text box for the email inside the mainframe
-homeaddress.pack()                # packing the homeaddress label inside the mainframe
-homeaddressbox.pack()             # packing the homeaddress textbox inside the mainframe
-gender.pack()                    # packing the gender label inside the mainframe
-genderdrop.pack()                 # packing the gender dropdowm menu to select from
-coursesenrolled.pack()           # packing the courses label in the mainframe
+imglabel.pack(side = TOP)                                                # packing the header image in the window
+main_frame.pack(side = TOP, pady = 20)                                   # packing the main frame inside the app window
+main_head.grid(row = 0, columnspan = 2, padx = 10, pady = 10)                         # packing the main heading inside the mainframe
+subhead.grid(row = 1, columnspan = 2, pady = 5)                                                 # packing the subheading inside the mainframe
+
+stdname.grid(row = 2, column = 0)                       # packing the student name label text in the mainframe
+stdtext.grid(row = 2, column = 1)                      # packing the textbox for student name   
+mobilenum.grid()                     # packing the mobile number label in the mainframe
+mobilenumtext.grid()                # packing the text box for the mobile number in the mainframe
+email_id.grid()                    # packing the email id label inside the mainframe
+email_idbox.grid()                  # packing the text box for the email inside the mainframe
+homeaddress.grid()                # packing the homeaddress label inside the mainframe
+homeaddressbox.grid()             # packing the homeaddress textbox inside the mainframe
+gender.grid()                    # packing the gender label inside the mainframe
+genderdrop.grid()                 # packing the gender dropdowm menu to select from
+coursesenrolled.grid()           # packing the courses label in the mainframe
 
 # packing all the radio buttons
-course_rd1.pack()             
-course_rd2.pack()             
-course_rd3.pack()             
-course_rd4.pack()    
+course_rd1.grid()             
+course_rd2.grid()             
+course_rd3.grid()             
+course_rd4.grid()    
 
-languages.pack()                    # packing the languages label inside the mainframe
+languages.grid()                    # packing the languages label inside the mainframe
 
 # packing all the checkboxes
-checkbox1.pack()
-checkbox2.pack()
-checkbox3.pack()
+checkbox1.grid()
+checkbox2.grid()
+checkbox3.grid()
 
-rates.pack()                       # packing the communication skills rating message
-progressmeter.pack()               # packing the progress meter
+rates.grid()                       # packing the communication skills rating message
+progressmeter.grid()               # packing the progress meter
 
   
 # using the mainloop function to run the window, loops the program unlimited number of times, until inturepted by anything

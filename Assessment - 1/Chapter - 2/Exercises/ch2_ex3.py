@@ -5,7 +5,7 @@ Writing a pyhton program using tkinter library to create a login page.
 
 """
 
-# start of the program 
+# start of the program  (clearing out once the button is pressed, u make that)
 
 # calling the tkinter library
 from tkinter import *
@@ -22,6 +22,12 @@ apptab.resizable(0, 0)
 
 # setting the background color for the window
 apptab.configure(background = '#ffe5b4')
+
+# creating a function to clear out the user entered values once the button is pressed
+def btnpress(user_text, pass_text):
+    user_text = user_text.get()
+    pass_text = pass_text.get()
+
 
 # creating a frame to place all the text-boxes, buttons, etc. in one place
 mainframe = LabelFrame(apptab, bg = '#1a2b45', border = 10)
@@ -44,7 +50,8 @@ mainframe.grid(row = 0, column = 3, padx = 30, pady = 15)
 loginheading.grid(padx = 150, pady = 75, column = 1)
 
 # creating a button to confirm login details
-login_btn = Button(mainframe, text = 'Log In', width = 15, height = 2, bg = '#ffe5b4', fg = '#1a2b45', font = ('Helavatica', 15, 'bold'))
+login_btn = Button(mainframe, text = 'Log In', width = 15, height = 2, bg = '#ffe5b4', fg = '#1a2b45', font = ('Helavatica', 15, 'bold')
+                   , command = btnpress)
 
 # displaying the username and password labels inside the frame
 user_label.grid(row = 1, column = 0, pady = 2, padx = 40)
