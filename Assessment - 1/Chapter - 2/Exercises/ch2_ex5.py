@@ -40,19 +40,19 @@ def user_values(selectionofuser):
 
         # now, we perform the arithemetic opertations
 
-        if selectionofuser == addbtn:
+        if selectionofuser == "+":
             finalans.set(userentry_1 + userentry_2)
         
-        elif selectionofuser == subbtn:
+        elif selectionofuser == "-":
             finalans.set(userentry_1 - userentry_2)
 
-        elif selectionofuser == mulbtn:
+        elif selectionofuser == "x":
             finalans.set(userentry_1 * userentry_2)
 
-        elif selectionofuser == divbtn:
+        elif selectionofuser == "/":
             finalans.set(userentry_1 / userentry_2)
 
-        elif selectionofuser == modbtn: 
+        elif selectionofuser == "%": 
             finalans.set(userentry_1 % userentry_2)
 
     
@@ -80,12 +80,15 @@ num2_userentry = Entry(user_entry_frame, width = 10, font = ('Roboto', 16))
 btns_frame = LabelFrame(appwindow, bg = 'green', border = 0)
 
 # creating the buttons for each operation
-addbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Addition +', fg = 'white', bg = 'red', border = 2, command = user_values)
-subbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Subtraction -', fg = 'white', bg = 'red', border = 2, command = user_values)
-mulbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Multiplication x', fg = 'white', bg = 'red', border = 2, command = user_values)
-divbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Division /', fg = 'white', bg = 'red', border = 2, command = user_values)
-modbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Modulus %', fg = 'white', bg = 'red', border = 2, command = user_values)
+# addbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Addition +', fg = 'white', bg = 'red', border = 2, command = user_values)
+# subbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Subtraction -', fg = 'white', bg = 'red', border = 2, command = user_values)
+# mulbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Multiplication x', fg = 'white', bg = 'red', border = 2, command = user_values)
+# divbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Division /', fg = 'white', bg = 'red', border = 2, command = user_values)
+# modbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Modulus %', fg = 'white', bg = 'red', border = 2, command = user_values)
 
+op_btns = ['+', '-', 'x', '/', '%']
+for i, operation in enumerate(op_btns):
+    Button(btns_frame, text = operation, command = lambda selectop = operation: user_values(selectop).grid(row = 0, column = i, padx = 5, pady = 10))
 
 # creating a label for the results
 finalans = StringVar()
@@ -101,11 +104,11 @@ num1_userentry.grid(row = 0, column = 1, pady = 10, padx = 5)           # using 
 num2_label.grid(row = 1, column = 0, pady = 10, padx = 5)               # using grid to display label for num2
 num2_userentry.grid(row = 1, column = 1, pady = 10, padx = 5)           # using grid to display the entry widget for num2
 btns_frame.pack(anchor = W, padx = 5)                                   # packing the frame for all the btns
-subbtn.grid(row = 1, column = 0, padx = 5, pady = 10)                   # using grid to display the addition button
-mulbtn.grid(row = 2, column = 0, padx = 5, pady = 10)                   # using grid to display the subtraction button
-divbtn.grid(row = 3, column = 0, padx = 5, pady = 10)                   # using grid to display the multiplication button
-addbtn.grid(row = 0, column = 0, padx = 5, pady = 10)                   # using grid to display the division button
-modbtn.grid(row = 4, column = 0, padx = 5, pady = 10)                   # using grid to display the modulus button
+# subbtn.grid(row = 1, column = 0, padx = 5, pady = 10)                   # using grid to display the addition button
+# mulbtn.grid(row = 2, column = 0, padx = 5, pady = 10)                   # using grid to display the subtraction button
+# divbtn.grid(row = 3, column = 0, padx = 5, pady = 10)                   # using grid to display the multiplication button
+# addbtn.grid(row = 0, column = 0, padx = 5, pady = 10)                   # using grid to display the division button
+# modbtn.grid(row = 4, column = 0, padx = 5, pady = 10)                   # using grid to display the modulus button
 finalanslabel.grid(row = 3, column = 1)                                 # using grid to display the final answer of the calculations
 
 
