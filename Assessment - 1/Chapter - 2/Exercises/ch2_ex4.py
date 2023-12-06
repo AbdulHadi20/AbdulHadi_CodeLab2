@@ -26,6 +26,15 @@ app.resizable(1, 1)
 # setting the background color
 app.configure(background = '#ffffff')
 
+
+################################# CREATING FUNCTIONS FOR THE BUTTONS ####################################################
+
+def cancel():
+    stdtext.delete(0, "end")
+    mobilenumtext.delete(0, "end")
+    email_idbox.delete(0, "end")
+    homeaddressbox.delete(0, "end")
+
 ################################# CREATING ALL THE REQUIRED WIDGETS/LABELS ETC. ##########################################
 
 # creating a frame to place all the tabs inside the frame
@@ -66,9 +75,10 @@ homeaddressbox = Text(sub_frame, width = 25, height = 1)
 # creating the label and text box for the gender
 gender = Label(sub_frame, font = ('Roboto', 12), text = "Gender", bg = '#d3d3d3')
 
-# genderdisplay = StringVar()
-# genderdrop = OptionMenu(main_frame, genderdisplay, "Male", "Female", "Confused")
-genderdrop = Text(sub_frame, width = 25, height = 1)
+genderdisplay = ['Male', 'Female', 'Rather not Say']
+genderdisplay_optn = StringVar()
+genderdrop = OptionMenu(sub_frame, textvariable = genderdisplay_optn, variable = genderdisplay, width = 25, height = 1)
+# genderdrop = Text(sub_frame, width = 25, height = 1)
 
 # creating a label and radio buttons for courses enrolled
 coursesenrolled = Label(sub_frame, font =('Roboto', 12), text = "Course Enrolled", bg = '#d3d3d3')
