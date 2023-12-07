@@ -12,7 +12,7 @@ We can ask the user to enter values, and select operations to perform
 
 """
 
-# start of the program (NEED TO MAKE SURE THAT THE CALCULATIONS ARE WORKING)
+# start of the program 
 
 # importing the tkinter module library
 from tkinter import *
@@ -27,8 +27,8 @@ appwindow.configure(background = 'green')       # setting the background color o
 
 ############################ CREATING FUNCTIONS FOR ARITHMETIC OPERATIONS #############################################
 
-# creating a funtion that takes values from the user
-def user_values(selectionofuser):
+# creating a funtion that takes values from the user and gets the sum
+def addition():
     value_1 = num1_userentry.get()
     value_2 = num2_userentry.get()
 
@@ -38,28 +38,91 @@ def user_values(selectionofuser):
         userentry_1 = float(value_1)
         userentry_2 =  float(value_2)
 
-        # now, we perform the arithemetic opertations
+        ans = userentry_1 + userentry_2
 
-        if selectionofuser == "+":
-            finalans.set(userentry_1 + userentry_2)
-        
-        elif selectionofuser == "-":
-            finalans.set(userentry_1 - userentry_2)
+        finalans.set(f"\n The sum of {value_1} and {value_2} is {ans}")
 
-        elif selectionofuser == "x":
-            finalans.set(userentry_1 * userentry_2)
+    else: 
+        finalans.set("\n ERROR, PLEASE ENTER DIGITS ONLY")
 
-        elif selectionofuser == "/":
-            finalans.set(userentry_1 / userentry_2)
+# creating a funtion that takes values from the user and gets the difference
+def subtraction():
+    value_1 = num1_userentry.get()
+    value_2 = num2_userentry.get()
 
-        elif selectionofuser == "%": 
-            finalans.set(userentry_1 % userentry_2)
+    # now we have to check if the values entered are digigts or not
+    if value_1.isdigit() and value_2.isdigit():
+        # if they are digitts, then since the values would be in str format, we convert them into float values
+        userentry_1 = float(value_1)
+        userentry_2 =  float(value_2)
 
-    
-    else:
-        finalans.set("ERROR - PLEASE ENTER NUMBERS ONLY")
+        ans = userentry_1 - userentry_2
 
-    
+        finalans.set(f"\n The difference of {value_1} and {value_2} is {ans}")
+
+    else: 
+        finalans.set("\n ERROR, PLEASE ENTER DIGITS ONLY")
+
+# creating a funtion that takes values from the user and gets the product
+def multiplication():
+    value_1 = num1_userentry.get()
+    value_2 = num2_userentry.get()
+
+    # now we have to check if the values entered are digigts or not
+    if value_1.isdigit() and value_2.isdigit():
+        # if they are digitts, then since the values would be in str format, we convert them into float values
+        userentry_1 = float(value_1)
+        userentry_2 =  float(value_2)
+
+        ans = userentry_1 * userentry_2
+
+        finalans.set(f"\n The product of {value_1} and {value_2} is {ans}")
+
+    else: 
+        finalans.set("\n ERROR, PLEASE ENTER DIGITS ONLY")
+
+# creating a funtion that takes values from the user and gets the division
+def division():
+    value_1 = num1_userentry.get()
+    value_2 = num2_userentry.get()
+
+    # now we have to check if the values entered are digigts or not 
+    if value_1.isdigit() and value_2.isdigit():
+        # if they are digitts, then since the values would be in str format, we convert them into float values
+        userentry_1 = float(value_1)
+        userentry_2 =  float(value_2)
+
+        ans = userentry_1 / userentry_2
+
+        finalans.set(f"\n The divison of {value_1} and {value_2} is {ans}")
+
+    else: 
+        finalans.set("\n ERROR, PLEASE ENTER DIGITS ONLY")
+
+# creating a funtion that takes values from the user and gets the remainder
+def modulus():
+    value_1 = num1_userentry.get()
+    value_2 = num2_userentry.get()
+
+    # now we have to check if the values entered are digigts or not
+    if value_1.isdigit() and value_2.isdigit():
+        # if they are digitts, then since the values would be in str format, we convert them into float values
+        userentry_1 = float(value_1)
+        userentry_2 =  float(value_2)
+
+        ans = userentry_1 % userentry_2
+
+        finalans.set(f"\n The remainder of {value_1} and {value_2} is {ans}")
+
+    else: 
+        finalans.set("\n ERROR, PLEASE ENTER DIGITS ONLY")
+
+# creating a fucnction to clear out the entry fields
+def clear_values():
+    num1_userentry.delete(0, "end")
+    num2_userentry.delete(0, "end")
+
+
 ########################### SETTING UP THE TKINTER WINDOW / STYLING LABELS & WIDGETS #################################    
 
 # creating a heading
@@ -80,19 +143,16 @@ num2_userentry = Entry(user_entry_frame, width = 10, font = ('Roboto', 16))
 btns_frame = LabelFrame(appwindow, bg = 'green', border = 0)
 
 # creating the buttons for each operation
-# addbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Addition +', fg = 'white', bg = 'red', border = 2, command = user_values)
-# subbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Subtraction -', fg = 'white', bg = 'red', border = 2, command = user_values)
-# mulbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Multiplication x', fg = 'white', bg = 'red', border = 2, command = user_values)
-# divbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Division /', fg = 'white', bg = 'red', border = 2, command = user_values)
-# modbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Modulus %', fg = 'white', bg = 'red', border = 2, command = user_values)
-
-op_btns = ['+', '-', 'x', '/', '%']
-for i, operation in enumerate(op_btns):
-    Button(btns_frame, text = operation, command = lambda selectop = operation: user_values(selectop).grid(row = 0, column = i, padx = 5, pady = 10))
+addbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Addition +', fg = 'white', bg = 'red', border = 2, command = addition)
+subbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Subtraction -', fg = 'white', bg = 'red', border = 2, command = subtraction)
+mulbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Multiplication x', fg = 'white', bg = 'red', border = 2, command = multiplication)
+divbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Division /', fg = 'white', bg = 'red', border = 2, command = division)
+modbtn = Button(btns_frame, font = ('Roboto', 16), text = 'Modulus %', fg = 'white', bg = 'red', border = 2, command = modulus)
+clear = Button(btns_frame, font = ('Roboto', 16), text = 'Clear', fg = 'white', bg = 'black', border = 2, command = clear_values)
 
 # creating a label for the results
 finalans = StringVar()
-finalanslabel = Label(btns_frame, font = ('Helavatica', 20, 'bold'), fg = 'white', bg = 'green', textvariable = finalans)
+finalanslabel = Label(appwindow, font = ('Helavatica', 16, 'bold'), fg = 'white', bg = 'green', textvariable = finalans)
 
 
 ######################### DISPLAYING THE LABELS AND WIDGETS INSIDE THE APP WINDOW ###################################
@@ -104,12 +164,13 @@ num1_userentry.grid(row = 0, column = 1, pady = 10, padx = 5)           # using 
 num2_label.grid(row = 1, column = 0, pady = 10, padx = 5)               # using grid to display label for num2
 num2_userentry.grid(row = 1, column = 1, pady = 10, padx = 5)           # using grid to display the entry widget for num2
 btns_frame.pack(anchor = W, padx = 5)                                   # packing the frame for all the btns
-# subbtn.grid(row = 1, column = 0, padx = 5, pady = 10)                   # using grid to display the addition button
-# mulbtn.grid(row = 2, column = 0, padx = 5, pady = 10)                   # using grid to display the subtraction button
-# divbtn.grid(row = 3, column = 0, padx = 5, pady = 10)                   # using grid to display the multiplication button
-# addbtn.grid(row = 0, column = 0, padx = 5, pady = 10)                   # using grid to display the division button
-# modbtn.grid(row = 4, column = 0, padx = 5, pady = 10)                   # using grid to display the modulus button
-finalanslabel.grid(row = 3, column = 1)                                 # using grid to display the final answer of the calculations
+addbtn.grid(row = 0, column = 0, padx = 5, pady = 10)                   # using grid to display the addition button
+subbtn.grid(row = 0, column = 1, padx = 5, pady = 10)                   # using grid to display the subtraction button
+mulbtn.grid(row = 1, column = 0, padx = 5, pady = 10)                   # using grid to display the multiplication button
+divbtn.grid(row = 1, column = 1, padx = 5, pady = 10)                   # using grid to display the division button
+modbtn.grid(row = 2, column = 0, padx = 5, pady = 10)                   # using grid to display the modulus button
+clear.grid(row = 2, column = 1, padx = 5, pady = 10)                    # using grid to display the clear button
+finalanslabel.pack(side = BOTTOM, anchor = S, padx = 5, pady = 20)      # using grid to display the final answer of the calculations
 
 
 # running the root window
