@@ -10,8 +10,8 @@ Hint: Can use the date from datetime package
 
 # importing the required libraries and modules
 from tkinter import *
-import datetime
-from datetime import date
+from datetime import datetime
+
 # initializing the root window
 root = Tk()
 
@@ -25,26 +25,25 @@ root.configure(background = 'skyblue')
 
 # creating a function to calculate the age
 
-def age_cal():
-    dob = dob_entry.get()
+def age_cal():                             
+    date_today = datetime.today()                              # getting tdoay's date and storing it in a var
+    dob = dob_entry.get()                                      # getting the user's date of birth and storing it
+    user_birthday = datetime.strptime(dob, "%d/%m/%Y")         # converting the user's dob into a datetime format
 
-    # check if user entry is a digit
-    if dob.isdigit():
-        def convert(date):
-            return int(datetime.datetime.strptime(date, '%Y-%m-%d').timestamp())
+    # calculating the years of age of the user
+    user_year = date_today.year - user_birthday.year 
 
-        date_today = date.today()
-        age_today = date_today - convert(dob) // (60*60*24*365)
+    # calculating the months and days as well
+    if (date_today.month, date_today.day) == (user_birthday.month, user_birthday.day): # runs if user's month and day is same as today's
+        result_str.set(f"Happy Birthday Human! Have a nice one.. \n You are now {user_year} years old")
 
-        # age = date_today - birthdate.year - ((date_today.month, birthdate.day) < (birthdate.month, birthdate.day))
+    elif (date_today.month, date_today.day) < (user_birthday.month, user_birthday.day): # runs user's birthday hasn't come this year
+        user_current = user_year - 1
+        
+        result_str.set(f"Congratulations, You are {user_current} years old. ")
 
-        result_str.set(f"\n You are {age_today} years old")
-
-    else: 
-        result_str.set("\n ERROR !! Please enter only digits")
-
-
-
+    else:  # runs if user enters invalid date (needs fin)
+        result_str.set(f"Congratulations, You are {user_year} years old")
 
 ################################ CREATING ALL THE REQUIRED WIDGETS #################################################
 
@@ -55,7 +54,7 @@ heading = Label(root, font = ('Arial', 18, 'bold'), text = "AGE CALCULATOR", bg 
 mainframe = LabelFrame(root, bg = 'skyblue', border = 0)
 
 # label that displays a message to tell the user to enter their day
-user_dob = Label(mainframe, font = ('Arial', 12), text = "Please enter your Day of Birth (m-d-y)= ", bg = 'skyblue', fg = 'blue')
+user_dob = Label(mainframe, font = ('Arial', 12), text = "Please enter your Day of Birth (d-m-y)= ", bg = 'skyblue', fg = 'blue')
 
 # an entry widget for the user to tell their date of birth
 dob_entry = Entry(mainframe, font = ('Arial', 12), width = 15, text = "dd-mm-yyyy")
