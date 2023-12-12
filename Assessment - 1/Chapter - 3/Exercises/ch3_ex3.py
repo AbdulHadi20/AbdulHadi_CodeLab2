@@ -89,7 +89,7 @@ clear_btn = Button(frame1, bg = 'darkgray', fg = 'white', text = "Clear", comman
 
 # displaying the result
 result_str = StringVar()
-result = Label(frame1, font = ('Arial', 16), textvariable = result_str, bg = 'skyblue').grid(row = 5, column = 0, columnspan = 10, padx = 150, pady = 50)
+result = Label(frame1, font = ('Arial', 16), textvariable = result_str, bg = 'skyblue').grid(row = 5, column = 0, columnspan = 10, padx = 150, pady = 10)
 
 ########################## CREATING, CALCULATING, & DISPLAYING THE SQUARE TABS ####################################
 
@@ -131,7 +131,7 @@ def calculate_circ():
 
     if circ_radius.isdigit():
         radius = float(circ_radius)
-
+ 
         area_circ = 3.14 * radius**2
 
         result_str.set(f"The area of the circle is {area_circ} m.sq")

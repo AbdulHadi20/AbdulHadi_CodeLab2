@@ -36,7 +36,7 @@ def update_display():
     selected_color = colors_select.get()
     greet_person_str.set(f"Hi {entry_name.get()}! \n Your favorite color is {selected_color}")
     
-    greet_person.pack(side = TOP, anchor = N, padx = 30, pady = 30)
+    greet_person.pack(side = TOP, anchor = N, padx = 30, pady = 100)
     greet_person.configure(background = selected_color)
 
     displayframe.configure(background = selected_color)
