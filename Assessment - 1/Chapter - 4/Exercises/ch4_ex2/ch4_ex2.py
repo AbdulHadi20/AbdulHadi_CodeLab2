@@ -14,7 +14,7 @@ The file sentences.txt has a list of string data. Develop a GUI App that finds o
 
 # importing the required modules
 from tkinter import *
-import os
+from tkinter import messagebox
 
 # initializing the root window and customizing its appearance
 
@@ -26,21 +26,36 @@ root.configure(background = 'orange')              # sets the background color o
 
 ############################ CREATING THE REQUIRED FUNCTIONS #############################################
 
-def read_file():
+# creating a function that counts the occurences of a string in a file
+def read_file(string, file_path):
+    # using try/except to handle errors better
+    try:
+        # opening the file 
+        with open('sentences.txt', 'r') as file:
+            content = file.read()           # reads the conent in the file
 
-    with open("sentences.txt", 'r') as file:
-        content = file.read()
+            # counting the strings
+            count = content.lower().count(string.lower())
 
-        # creating the label to display the results
-        result_label_str = StringVar()
-        result_label = Label(root, textvariable = result_label_str,font = ('Arial', 18), bg = 'orange')
-        result_label.pack(pady = 10)
+            # getting the result
+            ans_label_str.set(f'The string {string} appears {count} times\n')
+    
+    except:
+        messagebox.showerror("ERROR", 'File not found or does not exist')
 
-        result_label_str.set(f"The data in the file 'sentences.txt' is: \n {content}")
-        
-        # counting the occurence of each string
-        
-        
+# creating a function for the button
+def submit_btn():
+    # creating a list of strings to search for
+    strings = [
+        'Hello my name is Peter Parker', 'I love Python Programming', 'Love', 'Enemy'
+    ]
+
+
+    ans = ""
+    # creating a for loop to go through each line in file
+    for string in strings:
+        ans = read_file(string, 'sentences.txt') + '\n'
+        ans_label.config(text = ans)
 
 
 ############################ CREATING & DISPLAYING THE REQUIRED WIDGETS #############################################
@@ -50,11 +65,11 @@ heading_label = Label(root, font = ('Arial', 25, 'bold'), text = "Read File", bg
 heading_label.pack(side = TOP, pady = 10)
 
 # creating a button to read data in a txt file
-read_data = Button(root, font = ('Arial', 18), text = "Read Data", bg = 'green', padx = 5, pady = 5, command = read_file)
+read_data = Button(root, font = ('Arial', 18), text = "Read Data", bg = 'green', padx = 5, pady = 5, command = submit_btn)
 read_data.pack(padx = 35, pady = 20)
 
 ans_label_str = StringVar()
-ans_label = Label(root, font = ('Arial', 16, 'bold'), bg = 'orange', textvariable = ans_label_str)
+ans_label = Label(root, font = ('Arial', 10, 'bold'), bg = 'orange', textvariable = ans_label_str)
 ans_label.pack(pady = 30)
 
 # running the main root window
