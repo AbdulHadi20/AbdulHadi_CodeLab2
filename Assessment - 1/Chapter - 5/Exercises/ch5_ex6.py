@@ -12,7 +12,7 @@ Develop a GUI to perform Arithmetic Operations.
 
 # start of the program
 
-# Importing modules from the tkinter library
+# calling the required modules/libraries
 from tkinter import *
 from tkinter import messagebox
 
@@ -21,81 +21,96 @@ root = Tk()
 
 # setting the title, dimensions etc. 
 root.title("Arithmetic Operations")
-root.geometry()
+root.geometry("400x400")
+root.resizable(0, 0)
+root.configure(background = 'red')
 
-# Class for performing arithmetic operations
-class ArithmeticOperations:
-    def calculate(operation, value1, value2):
+############################### CREATING THE REQUIRED CLASS FOR ARITHMETIC OPERATIONS ##########################################
+
+# creating the class named as arithmetic opertaions
+class arithmetic_operation:
+
+    # creating a function that performs the operations 
+    def calculate(arithmetic_op, num1, num2):
+
+        # using try/except method to handle error outputs efficiently
         try:
-            # To Perform the selected arithmetic operation
-            if operation == "Addition":
-                return value1 + value2
-            elif operation == "Subtraction":
-                return value1 - value2
-            elif operation == "Multiplication":
-                return value1 * value2
-            elif operation == "Division":
-                # Check for division by zero
-                return value1 / value2 if value2 != 0 else messagebox.showerror("Error", "Cannot divide by zero.")
-            elif operation == "Exponentiation":
-                return value1 ** value2
+            # conditional statements based on the user's choices
+            if arithmetic_op == "Addition":
+                return num1 + num2
+            
+            elif arithmetic_op == "Subtraction":
+                return num1 - num2
+            
+            elif arithmetic_op == "Multiplication":
+                return num1 * num2
+            
+            elif arithmetic_op == "Division":
+                return num1 / num2 if num2 != 0 else messagebox.showerror("Error", "Cannot divide by zero. Operation Failed") # checks if user entered zero
+            
+            elif arithmetic_op == "Exponentiation":
+                return num1 ** num2
+        
+        # runs if the code in the try function does not work
         except ValueError:
-            # Handle invalid input values
-            messagebox.showinfo("Error", "Please enter valid numeric values.")
+            messagebox.showinfo("Error", "Please enter numerical values.") # pops up an error window
             return
 
-# Function to perform calculation when the "Calculate" button is clicked
-def perform_calculation():
-    # Getting the selected arithmetic operation
-    selected_operation = operation_var.get()
+# creating a function for the buttton to start performing the calculation
+def selected_operation():
+    # getting the desired arithmetic operation
+    selected_operation = arithmetic_list_var.get()
 
+    # using try/except method to haandle errors better
     try:
-        # Getting values from entry widgets
-        result = ArithmeticOperations.calculate(selected_operation, float(value1_entry.get()), float(value2_entry.get()))
+        # saving the result in a var,calling the calculate function to calculate based on the user's selected arithmetic operation
+        result = arithmetic_operation.calculate(selected_operation, float(num1_entry.get()), float(num2_entry.get()))
+        
         if result:
-            # Displaying the result in a messagebox pop-up
-            messagebox.showinfo("Result", f"The result is: {result}")
+            messagebox.showinfo("Result", f"The {selected_operation} of the two numbers is = {result}")
+    
     except ValueError:
-        # Handle invalid input values
         messagebox.showinfo("Error", "Please enter valid numeric values.")
 
-# Widgets for Arithmetic Operations tab
-arithmetic_tab = Frame(root, bg="#22263d", pady=20)
+################################### CREATING & DISPLAYING THE REQUIRED WIDGETS #############################################
+        
+# creating a heading label
+heading_label = Label(root, font = ('Arial', 25, 'bold'), text = "Arithmetic Operations", bg = 'red', fg = 'white')
+heading_label.pack(pady = 10, side = TOP)
 
-# Label for selecting the arithmetic operation
-operation_label = Label(arithmetic_tab, text='Select Operation:', 
-                        font=('Roboto', 12, 'bold'),bg="#22263d",fg='white')
-operation_label.pack()
+# creating a frame to display the widgets in a proper way
+framedisplay = Frame(root, bg = 'red')
+framedisplay.pack(fill = BOTH, expand = YES)
 
-# Options for the arithmetic operations presented in a drop-down menu
-operations = ["Addition", "Subtraction", "Multiplication", "Division", "Exponentiation"]
-operation_var = StringVar()
-operation_var.set(operations[0])
-operation_option = OptionMenu(arithmetic_tab, operation_var, *operations)
-operation_option.pack(pady=10)
+# creating a lable to inform the user to select an option from the dropdown menu
+operation_label = Label(root, font = ('Arial', 12), text = "Please Select an option from the dropdown menu",  bg = "red", fg = 'white')
+operation_label.pack(pady = 10, side = TOP)
 
-# Labels and Entry widgets for inputting numeric values
-value1_label = Label(arithmetic_tab, text="Enter Value 1:", 
-                     font=('Roboto', 12, 'bold'),bg="#22263d",fg='white')
-value1_label.pack(pady=5)
-value1_entry = Entry(arithmetic_tab, font=("Helvetica", 12))
-value1_entry.pack(pady=5)
+# creating a dropdown menu that consists of arithmetic operations for the user to select from
+arithmetic_list = ["Addition", "Subtraction", "Multiplication", "Division", "Exponentiation"]
+arithmetic_list_var = StringVar()
+arithmetic_list_var.set(arithmetic_list[0])
+operation_option = OptionMenu(root, arithmetic_list_var, *arithmetic_list)
+operation_option.pack(pady = 10)
 
-value2_label = Label(arithmetic_tab, text="Enter Value 2:", 
-                     font=('Roboto', 12, 'bold'),bg="#22263d",fg='white')
-value2_label.pack(pady=5)
-value2_entry = Entry(arithmetic_tab, font=("Helvetica", 12))
-value2_entry.pack(pady=5)
+# creating labels and entry widgets for the values
+num1_label = Label(framedisplay, font = ('Arial', 12), text = "Enter the first value = ", bg = "red", fg = 'white')
+num1_label.grid(row = 0, column = 0, pady = 10, padx = 5)
 
-# Button to trigger the calculation with specified text, command, font, and color
-calculate_button = Button(arithmetic_tab, text='Calculate', 
-                command=perform_calculation, font=("Helvetica", 12,'bold'), bg="#4CAF50", fg="white")
+num1_entry = Entry(framedisplay, font = ('Arial', 12), width = 20)
+num1_entry.grid(row = 0, column = 1, padx = 5, pady = 10)
+
+num2_label = Label(framedisplay, font = ('Arial', 12), text = "Enter the second value = ", bg = "red", fg = 'white')
+num2_label.grid(row = 1, column = 0, pady = 10, padx = 5)
+
+num2_entry = Entry(framedisplay, font=("Helvetica", 12))
+num2_entry.grid(row = 1, column = 1, padx = 5, pady = 10)
+
+# creating a button to perform the calulcations when clicked 
+calculate_button = Button(root, font = ("Helvetica", 12,'bold'), text = "Calculate", bg = "green", fg = "white", command = selected_operation)
 calculate_button.pack(pady=10)
 
-# Packing the Arithmetic Operations tab
-arithmetic_tab.pack(fill=BOTH, expand=YES)
-
-# Run the main event loop
+# runs the program window
 root.mainloop()
 
-# End Marker
+# end of the program

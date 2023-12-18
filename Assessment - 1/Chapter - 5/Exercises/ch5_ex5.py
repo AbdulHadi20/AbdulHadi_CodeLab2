@@ -13,9 +13,9 @@ animalDetails() -output all the details of the animal object
 
 """
 
-# start of the program# Chapter 5 Exercise 5 - Playing around in class
+# start of the program
 
-# using the tkinter library and messagebox
+# importing te required modules/libraries
 from tkinter import *
 from tkinter import messagebox
 
