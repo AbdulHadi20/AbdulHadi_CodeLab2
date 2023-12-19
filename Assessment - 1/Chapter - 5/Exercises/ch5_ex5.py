@@ -19,12 +19,24 @@ animalDetails() -output all the details of the animal object
 from tkinter import *
 from tkinter import messagebox
 
-# Defiing a class called Animal
+# initializing the root window
+app = Tk()
+
+# customizing the app window
+app.title("Playing Around in Class")
+app.geometry("400x400")
+app.resizable(0, 0)
+app.configure(background = 'cyan')
+
+################################## CREATING THE REQUIRED CLASS FOR ANIMALS ###########################################
+
+# creating a class called Animal
 class Animal:
+
+    # creating a function to get the data stored entered by the user
     def set_data(animal, animal_type, name, colour, age, weight, noise):
-        # Setting values for the members of the Animal class
-        animal.type = animal_type
-        animal.name = name
+        animal.type = animal_type  
+        animal.name = name 
         animal.colour = colour
         animal.age = age
         animal.weight = weight

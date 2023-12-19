@@ -9,14 +9,22 @@ These should include an appropriate  area() method that will use the side values
 
 # start of the program
 
-# Chapter 5 Exercise 4 - Shapes
-
-# using the tkinter library,messagebox and math
+# importing the required modules/libraries
 from tkinter import *
 from tkinter import messagebox
 import math
 
-# Defining the base class Shape for geometric shapes
+# initializing the root window
+root = Tk()
+
+# customizing the window siz, title, resizing etc.
+root.title("Shapes Classes")
+root.geometry("300x300")
+root.resizable(0, 0)
+
+################################## CREATING THE REQUIRED CLASSES & SUB-CLASSES #######################################################
+
+# creating the class for the shapes
 class Shape:
     def input_sides():
 
@@ -128,4 +136,4 @@ shape_tab.pack(fill=BOTH, expand=YES)
 # Run the main event loop
 root.mainloop()
 
-# End Marker
+# end of the program
